@@ -1,16 +1,17 @@
 package com.stephentuso.welcome;
 
+import static org.junit.Assert.assertNotNull;
+
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Intent;
-import android.support.test.InstrumentationRegistry;
+
+import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.stephentuso.welcomeexample.TestActivity;
 
 import org.junit.After;
 import org.junit.Before;
-
-import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by stephentuso on 10/10/16.

@@ -2,11 +2,12 @@ package com.stephentuso.welcomeexample.fragment;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.stephentuso.welcome.WelcomeFinisher;
 import com.stephentuso.welcome.WelcomePage;

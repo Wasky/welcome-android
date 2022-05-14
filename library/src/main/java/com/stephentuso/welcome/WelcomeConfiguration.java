@@ -2,10 +2,11 @@ package com.stephentuso.welcome;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.AnimRes;
-import android.support.annotation.ColorRes;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.AnimRes;
+import androidx.annotation.ColorRes;
+import androidx.annotation.LayoutRes;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by stephentuso on 11/15/15.
@@ -239,7 +240,7 @@ public class WelcomeConfiguration {
      * @return swipeToDismiss
      */
     public boolean getSwipeToDismiss() {
-        return builder.swipeToDismiss && Build.VERSION.SDK_INT >= 11;
+        return builder.swipeToDismiss;
     }
 
     /**
@@ -286,7 +287,8 @@ public class WelcomeConfiguration {
      *
      * @return animation resource id
      */
-    public @AnimRes int getExitAnimation() {
+    public @AnimRes
+    int getExitAnimation() {
         return builder.exitAnimationResId;
     }
 
@@ -382,7 +384,7 @@ public class WelcomeConfiguration {
             final int standardBackgroundColor = ColorHelper.getColor(context, R.color.wel_default_background_color);
 
             // AppCompat colorPrimary
-            int defaultBackgroundColor = ColorHelper.resolveColorAttribute(context, R.attr.colorPrimary, standardBackgroundColor);
+            int defaultBackgroundColor = ColorHelper.resolveColorAttribute(context, androidx.appcompat.R.attr.colorPrimary, standardBackgroundColor);
 
             // Android system colorPrimary
             if (defaultBackgroundColor == standardBackgroundColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)

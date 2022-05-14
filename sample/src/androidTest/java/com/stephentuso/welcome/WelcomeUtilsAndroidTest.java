@@ -1,15 +1,16 @@
 package com.stephentuso.welcome;
 
+import static org.junit.Assert.assertEquals;
+
 import android.os.Build;
-import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.test.runner.AndroidJUnit4;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Created by stephentuso on 10/22/16.

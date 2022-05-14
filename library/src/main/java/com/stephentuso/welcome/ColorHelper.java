@@ -1,10 +1,11 @@
 package com.stephentuso.welcome;
 
 import android.content.Context;
-import android.support.annotation.AttrRes;
-import android.support.annotation.ColorRes;
-import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorRes;
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by stephentuso on 11/16/15.

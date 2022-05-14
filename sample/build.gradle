@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 
 android {
+    namespace 'com.stephentuso.welcomeexample'
+
     compileSdkVersion sdkVersion.compile
     buildToolsVersion buildToolsVer
 
@@ -9,12 +11,10 @@ android {
         applicationId "com.stephentuso.welcomeexample"
         minSdkVersion sdkVersion.min
         targetSdkVersion sdkVersion.target
-        versionCode 4
-        versionName VERSION_NAME + ".0"
+        versionCode 1
+        versionName "1.0.0"
 
-        vectorDrawables.useSupportLibrary = true
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -25,119 +25,16 @@ android {
             testCoverageEnabled true
         }
     }
-    applicationVariants.all { variant ->
-        //variant.dex.dependsOn deleteJacocoagentJar
-        deleteJacocoagentJar.mustRunAfter variant.javaCompile
-    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    if (deploying) {
-        compile project(path: ":library")
-    } else {
-        debugCompile project(path: ":library", configuration: "debug")
-        releaseCompile project(path: ':library', configuration: "release")
-    }
-    compile support.annotations
-    compile support.v4
-    compile support.appcompat
-    testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile 'com.android.support.test:rules:0.5'
-    androidTestCompile support.annotations
-}
+    implementation project(':library')
 
-//adapted from https://code.google.com/p/android/issues/detail?id=76373
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
-task deleteJacocoagentJar {
-    doLast {
-        getTransitiveProjectDependencies(this, 'debugCompile').each { project ->
-            delete "build/intermediates/exploded-aar/${rootProject.name}/${project.name}/unspecified/debug/jars/libs/jacocoagent.jar"
-        }
-    }
-}
+    testImplementation 'junit:junit:4.13.2'
 
-def getTransitiveProjectDependencies(project, configuration) {
-    def projectDependencies = project.configurations."$configuration".getAllDependencies().withType(ProjectDependency)
-    def dependencyProjects = projectDependencies*.dependencyProject
-    dependencyProjects.each {
-        dependencyProjects += getTransitiveProjectDependencies(it, configuration)
-    }
-    return dependencyProjects.unique()
-}
-
-task deleteSampleReport {
-    group = "Reporting"
-
-    onlyIf {
-        true
-    }
-
-    def sampleReport = new File(getBuildDir(), "reports/coverage/debug/report.xml")
-    if (sampleReport.exists()) {
-        if (!sampleReport.delete()) {
-            logger.warn('Error deleting sample report')
-        }
-    }
-}
-
-task jacocoTestReport(type: JacocoReport, dependsOn: "deleteSampleReport") {
-    group = "Reporting"
-
-    File reportOutDir = file('build/outputs/reports/jacocoCoverage');
-    reportOutDir.deleteDir()
-    reportOutDir.mkdirs()
-
-    def buildDir = getBuildDir()
-    def projectDependencies
-    try {
-        projectDependencies = getTransitiveProjectDependencies(this, 'debugCompile')
-    } catch (Exception e) {
-        return
-    }
-
-
-    executionData = fileTree(dir: buildDir, includes: ['**/*.exec', '**/*.ec'])
-
-    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*',
-                      'android/**/*.*']
-
-    def sourceFiles = []
-
-    //This is commented to not include sample code in coverage report
-
-    /*sourceFiles.add(fileTree(dir: 'src'))
-    sourceFiles.add(fileTree(dir: "${buildDir}/generated/source/aidl/debug:"))
-    sourceFiles.add(fileTree(dir: "${buildDir}/generated/source/rs/debug"))*/
-
-    projectDependencies.each { Project project ->
-        sourceFiles.add(project.fileTree(dir: 'src'))
-        sourceFiles.add(project.fileTree(dir: "${project.getBuildDir()}/generated/source/aidl/debug"))
-        sourceFiles.add(project.fileTree(dir: "${project.getBuildDir()}/generated/source/rs/debug"))
-    }
-
-    def classFiles = []
-
-    //See comment above
-    //classFiles.add(fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter))
-
-    projectDependencies.each { Project project ->
-        classFiles.add(fileTree(dir: "${project.getBuildDir()}/intermediates/classes/debug", excludes: fileFilter))
-    }
-
-    sourceDirectories = files(sourceFiles)
-    classDirectories = files(classFiles)
-
-    reports {
-        html {
-            enabled true
-            destination reportOutDir
-        }
-        xml {
-            enabled true
-            destination new File(reportOutDir, 'jacocoFullReport.xml').path
-        }
-    }
-
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
 }

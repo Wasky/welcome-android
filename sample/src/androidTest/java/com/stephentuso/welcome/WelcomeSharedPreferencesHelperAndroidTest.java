@@ -1,13 +1,13 @@
 package com.stephentuso.welcome;
 
-import android.support.test.runner.AndroidJUnit4;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by stephentuso on 10/10/16.
