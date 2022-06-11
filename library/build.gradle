@@ -1,4 +1,7 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 android {
     namespace 'pl.waskysoft.welcome'
@@ -25,7 +28,6 @@ android {
     sourceSets {
         main.res.srcDirs += 'src/main/res-public'
     }
-
 }
 
 dependencies {
@@ -37,4 +39,18 @@ dependencies {
 
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'pl.waskysoft'
+            artifactId = 'welcome'
+            version = '0.0.1'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
 }
