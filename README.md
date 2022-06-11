@@ -1,7 +1,40 @@
+[![](https://jitpack.io/v/Wasky/welcome-android.svg)](https://jitpack.io/#Wasky/welcome-android)
+
+This is a port of [welcome-android](https://github.com/stephentuso/welcome-android) library.
+
+Difference between this library and the original one:
+
+* This lib uses AndroidX
+* minSdkVersion changed to 21
+
+Adding to your project
+======================
+
+Add these lines in your root-level (project-level) Gradle file (`build.gradle`):
+
+```gradle
+allprojects {
+    repositories {
+        // ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+And in your module (app-level) Gradle file (usually `app/build.gradle`):
+
+```gradle
+dependencies {
+    // ...
+    implementation 'com.github.wasky:welcome-android:1.0.0'
+}
+```
+
+Original readme file below:
+===========================
+
 Welcome
 =======
-
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Welcome-blue.svg?style=flat)](http://android-arsenal.com/details/1/3610) [![Download](https://api.bintray.com/packages/stephentuso/maven/welcome/images/download.svg)](https://bintray.com/stephentuso/maven/welcome/_latestVersion) [![Build Status](https://travis-ci.org/stephentuso/welcome-android.svg?branch=master)](https://travis-ci.org/stephentuso/welcome-android) [![codecov](https://codecov.io/gh/stephentuso/welcome-android/branch/master/graph/badge.svg)](https://codecov.io/gh/stephentuso/welcome-android) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f88fea4256a24130959e16d5c30578ce)](https://www.codacy.com/app/tusodev/welcome-android?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stephentuso/welcome-android&amp;utm_campaign=Badge_Grade)
 
 An easy to use and customizable welcome screen for Android apps.
 
