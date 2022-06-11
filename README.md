@@ -108,13 +108,11 @@ Table of Contents
 Adding to your project
 ======================
 
-This library is available through jCenter.
+~~This library is available through jCenter.~~
 
-Gradle:
+~~Gradle:~~
 
-```groovy
-compile 'com.stephentuso:welcome:1.4.1'
-```
+~~compile 'com.stephentuso:welcome:1.4.1'~~
 
 If you use proguard, add the following to your proguard rules
 
