@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-    namespace 'com.stephentuso.welcome'
+    namespace 'pl.waskysoft.welcome'
 
     compileSdkVersion sdkVersion.compile
     buildToolsVersion buildToolsVer

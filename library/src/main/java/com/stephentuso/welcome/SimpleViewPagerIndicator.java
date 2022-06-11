@@ -11,6 +11,8 @@ import android.view.View;
 
 import androidx.viewpager.widget.ViewPager;
 
+import pl.waskysoft.welcome.R;
+
 /**
  * Created by stephentuso on 11/16/15.
  * A quick and dirty ViewPager indicator.

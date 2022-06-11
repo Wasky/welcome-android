@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import pl.waskysoft.welcome.sample.R;
+
 /**
  * Created by stephentuso on 11/16/16.
  */

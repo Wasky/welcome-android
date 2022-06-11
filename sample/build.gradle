@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 
 android {
-    namespace 'com.stephentuso.welcomeexample'
+    namespace 'pl.waskysoft.welcome.sample'
 
     compileSdkVersion sdkVersion.compile
     buildToolsVersion buildToolsVer
 
     defaultConfig {
-        applicationId "com.stephentuso.welcomeexample"
+        applicationId "pl.waskysoft.welcome.sample"
         minSdkVersion sdkVersion.min
         targetSdkVersion sdkVersion.target
         versionCode 1

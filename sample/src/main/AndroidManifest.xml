@@ -16,41 +16,41 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TestActivity"/>
+        <activity android:name="com.stephentuso.welcomeexample.TestActivity"/>
 
-        <activity android:name=".ExampleActionActivity"/>
+        <activity android:name="com.stephentuso.welcomeexample.ExampleActionActivity"/>
 
-        <activity android:name=".SampleWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.SampleWelcomeActivity"
             android:theme="@style/SampleWelcomeScreenTheme"/>
 
-        <activity android:name=".DefaultWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.DefaultWelcomeActivity"
                   android:theme="@style/WelcomeScreenTheme"/>
 
-        <activity android:name=".LightWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.LightWelcomeActivity"
                   android:theme="@style/LightWelcomeScreenTheme"/>
 
-        <activity android:name=".NoSkipWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.NoSkipWelcomeActivity"
                   android:theme="@style/GeneralWelcomeScreenTheme"/>
 
-        <activity android:name=".BackExitWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.BackExitWelcomeActivity"
                   android:theme="@style/GeneralWelcomeScreenTheme"/>
 
-        <activity android:name=".CustomPageWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.CustomPageWelcomeActivity"
                   android:theme="@style/GeneralWelcomeScreenTheme"/>
 
-        <activity android:name=".IncludedPagesWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.IncludedPagesWelcomeActivity"
                   android:theme="@style/GeneralWelcomeScreenTheme"/>
 
-        <activity android:name=".ButtonBarWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.ButtonBarWelcomeActivity"
                   android:theme="@style/ButtonBarWelcomeScreenTheme"/>
 
-        <activity android:name=".ButtonBarSingleWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.ButtonBarSingleWelcomeActivity"
                   android:theme="@style/ButtonBarWelcomeScreenTheme.Single"/>
 
-        <activity android:name=".IndicatorOnlyWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.IndicatorOnlyWelcomeActivity"
                   android:theme="@style/GeneralWelcomeScreenTheme"/>
 
-        <activity android:name=".PreviousButtonWelcomeActivity"
+        <activity android:name="com.stephentuso.welcomeexample.PreviousButtonWelcomeActivity"
                   android:theme="@style/ActionBarWelcomeScreenTheme"
                   android:label="Title"/>
 

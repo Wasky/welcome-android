@@ -8,6 +8,8 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.LayoutRes;
 import androidx.fragment.app.Fragment;
 
+import pl.waskysoft.welcome.R;
+
 /**
  * Created by stephentuso on 11/15/15.
  * All getters are in WelcomeConfiguration, all setters are in Builder

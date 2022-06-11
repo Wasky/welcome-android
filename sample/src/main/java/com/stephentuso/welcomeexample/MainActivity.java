@@ -18,6 +18,8 @@ import com.stephentuso.welcome.WelcomeHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.waskysoft.welcome.sample.R;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_WELCOME_SCREEN_RESULT = 13;

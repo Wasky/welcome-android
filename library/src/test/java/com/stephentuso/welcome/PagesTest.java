@@ -15,6 +15,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import pl.waskysoft.welcome.R;
+
 /**
  * Created by stephentuso on 10/19/16.
  */

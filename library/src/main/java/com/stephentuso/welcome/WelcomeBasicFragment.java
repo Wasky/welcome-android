@@ -13,6 +13,8 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import pl.waskysoft.welcome.R;
+
 /**
  * Created by stephentuso on 11/15/15.
  * A simple fragment that shows an image, a heading, and a description.

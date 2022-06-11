@@ -7,6 +7,8 @@ import com.stephentuso.welcome.TitlePage;
 import com.stephentuso.welcome.WelcomeActivity;
 import com.stephentuso.welcome.WelcomeConfiguration;
 
+import pl.waskysoft.welcome.sample.R;
+
 /**
  * Created by stephentuso on 11/16/16.
  */

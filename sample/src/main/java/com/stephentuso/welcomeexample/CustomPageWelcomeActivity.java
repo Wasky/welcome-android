@@ -8,6 +8,8 @@ import com.stephentuso.welcome.WelcomeConfiguration;
 import com.stephentuso.welcomeexample.fragment.DoneFragment;
 import com.stephentuso.welcomeexample.fragment.ExampleFragment;
 
+import pl.waskysoft.welcome.sample.R;
+
 /**
  * Created by stephentuso on 10/5/16.
  */

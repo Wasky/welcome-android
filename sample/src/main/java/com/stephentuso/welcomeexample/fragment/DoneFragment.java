@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment;
 import com.stephentuso.welcome.WelcomeFinisher;
 import com.stephentuso.welcome.WelcomePage;
 import com.stephentuso.welcome.WelcomeUtils;
-import com.stephentuso.welcomeexample.R;
+
+import pl.waskysoft.welcome.sample.R;
 
 /**
  * A simple {@link Fragment} subclass.

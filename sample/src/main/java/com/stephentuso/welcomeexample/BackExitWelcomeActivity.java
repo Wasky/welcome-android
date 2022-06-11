@@ -4,6 +4,8 @@ import com.stephentuso.welcome.BasicPage;
 import com.stephentuso.welcome.WelcomeActivity;
 import com.stephentuso.welcome.WelcomeConfiguration;
 
+import pl.waskysoft.welcome.sample.R;
+
 /**
  * Created by stephentuso on 10/5/16.
  */

@@ -10,6 +10,8 @@ import android.util.TypedValue;
 
 import org.mockito.Mock;
 
+import pl.waskysoft.welcome.R;
+
 /**
  * Extend for tests that need a WelcomeConfiguration object,
  * Sets up the context object

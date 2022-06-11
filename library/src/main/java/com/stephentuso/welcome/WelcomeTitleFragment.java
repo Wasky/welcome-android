@@ -14,6 +14,8 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import pl.waskysoft.welcome.R;
+
 /**
  * A simple fragment that shows an image and a title.
  * Use the {@link WelcomeTitleFragment#newInstance} factory method to

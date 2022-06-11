@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import pl.waskysoft.welcome.R;
+
 public abstract class WelcomeActivity extends AppCompatActivity {
 
     public static final String WELCOME_SCREEN_KEY = "welcome_screen_key";

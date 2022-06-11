@@ -13,6 +13,8 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import pl.waskysoft.welcome.R;
+
 /**
  * Created by stephentuso on 1/23/16.
  */
