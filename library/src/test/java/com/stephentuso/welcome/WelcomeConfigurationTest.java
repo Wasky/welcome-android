@@ -1,21 +1,18 @@
 package com.stephentuso.welcome;
 
-import android.graphics.Color;
-import android.os.Build;
-import android.support.v4.app.Fragment;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
+
+import android.graphics.Color;
+
+import androidx.fragment.app.Fragment;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
 /**
  * Created by stephentuso on 10/6/16.
@@ -44,7 +41,6 @@ public class WelcomeConfigurationTest extends ConfigurationTest {
         builder2 = new WelcomeConfiguration.Builder(context);
 
         setRtl(false);
-        setApiLevel(12);
     }
 
 
@@ -52,21 +48,6 @@ public class WelcomeConfigurationTest extends ConfigurationTest {
 
     private void setRtl(boolean rtl) {
         when(resources.getBoolean(R.bool.wel_is_rtl)).thenReturn(rtl);
-    }
-
-    private void setApiLevel(int level) {
-        try {
-            Field field = Build.VERSION.class.getField("SDK_INT");
-
-            Field modField = Field.class.getDeclaredField("modifiers");
-            modField.setAccessible(true);
-            modField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-
-            field.set(null, level);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     private FragmentWelcomePage newBlankPage() {
@@ -94,11 +75,6 @@ public class WelcomeConfigurationTest extends ConfigurationTest {
     public void testSwipeToDismiss() {
         builder1.swipeToDismiss(true);
 
-        setApiLevel(10);
-        assertFalse(builder1.build().getSwipeToDismiss());
-        setApiLevel(11);
-        assertTrue(builder1.build().getSwipeToDismiss());
-        setApiLevel(18);
         assertTrue(builder1.build().getSwipeToDismiss());
 
         setRtl(true);
@@ -325,9 +301,6 @@ public class WelcomeConfigurationTest extends ConfigurationTest {
 
     @Test
     public void testInitDefaultBackgroundColor() {
-        //TODO: Improve this
-        assertEquals(DEFAULT_COLOR, builder1.build().getDefaultBackgroundColor().value());
-        setApiLevel(22);
         assertEquals(DEFAULT_COLOR, builder1.build().getDefaultBackgroundColor().value());
     }
 

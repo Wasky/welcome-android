@@ -1,13 +1,14 @@
 package com.stephentuso.welcome;
 
+import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.when;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.util.TypedValue;
 
 import org.mockito.Mock;
-
-import static org.mockito.Mockito.when;
 
 /**
  * Extend for tests that need a WelcomeConfiguration object,
@@ -26,9 +27,9 @@ import static org.mockito.Mockito.when;
 
     protected void initContext() {
         when(resources.getColor(R.color.wel_default_background_color)).thenReturn(DEFAULT_COLOR);
-        when(resources.getColor(R.color.wel_white)).thenReturn(Color.WHITE);
-        when(theme.resolveAttribute(R.attr.colorPrimary, new TypedValue(), true)).thenReturn(false);
-        when(theme.resolveAttribute(android.R.attr.colorPrimary, new TypedValue(), true)).thenReturn(false);
+        lenient().when(resources.getColor(R.color.wel_white)).thenReturn(Color.WHITE);
+        lenient().when(theme.resolveAttribute(android.R.attr.colorPrimary, new TypedValue(), true)).thenReturn(false);
+        lenient().when(theme.resolveAttribute(android.R.attr.colorPrimary, new TypedValue(), true)).thenReturn(false);
         when(context.getResources()).thenReturn(resources);
         when(context.getTheme()).thenReturn(theme);
     }

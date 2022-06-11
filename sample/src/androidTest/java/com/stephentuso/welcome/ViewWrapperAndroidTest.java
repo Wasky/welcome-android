@@ -1,16 +1,17 @@
 package com.stephentuso.welcome;
 
-import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.app.Fragment;
-import android.view.View;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+
+import android.view.View;
+
+import androidx.fragment.app.Fragment;
+import androidx.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
  * Created by stephentuso on 10/23/16.

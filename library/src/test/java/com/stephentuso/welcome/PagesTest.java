@@ -1,18 +1,19 @@
 package com.stephentuso.welcome;
 
-import android.graphics.Color;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.LayoutRes;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import android.graphics.Color;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.LayoutRes;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
 /**
  * Created by stephentuso on 10/19/16.
