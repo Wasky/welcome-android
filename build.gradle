@@ -12,9 +12,9 @@ buildscript {
 
 ext {
     sdkVersion = [
-            compile: 32,
+            compile: 33,
             min    : 21,
-            target : 32
+            target : 33
     ]
     buildToolsVer = '32.0.0'
 
