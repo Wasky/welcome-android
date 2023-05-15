@@ -52,7 +52,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'pl.waskysoft'
             artifactId = 'welcome'
-            version = '1.0.0'
+            version = "1.0.1"
 
             afterEvaluate {
                 from components.release
