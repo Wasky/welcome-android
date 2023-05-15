@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -128,9 +129,14 @@ public abstract class WelcomeActivity extends AppCompatActivity {
         responsiveItems.setup(configuration);
 
         viewPager.addOnPageChangeListener(responsiveItems);
+        viewPager.addOnPageChangeListener(onPageChangeListener);
         viewPager.setCurrentItem(configuration.firstPageIndex());
 
         responsiveItems.onPageSelected(viewPager.getCurrentItem());
+
+        WelcomeSharedPreferencesHelper.storeWelcomeCompleted(this, getKey());
+
+        getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
     }
 
     @Override
@@ -206,11 +212,12 @@ public abstract class WelcomeActivity extends AppCompatActivity {
      * unless the key is changed.
      */
     protected void completeWelcomeScreen() {
-        WelcomeSharedPreferencesHelper.storeWelcomeCompleted(this, getKey());
-        setWelcomeScreenResult(RESULT_OK);
+        //WelcomeSharedPreferencesHelper.storeWelcomeCompleted(this, getKey());
+        //setWelcomeScreenResult(RESULT_OK);
         finish();
-        if (configuration.getExitAnimation() != WelcomeConfiguration.NO_ANIMATION_SET)
+        /*if (configuration.getExitAnimation() != WelcomeConfiguration.NO_ANIMATION_SET) {
             overridePendingTransition(R.anim.wel_none, configuration.getExitAnimation());
+        }*/
     }
 
     /**
@@ -218,13 +225,11 @@ public abstract class WelcomeActivity extends AppCompatActivity {
      * A subsequent call to WelcomeScreenHelper.show() would show this again.
      */
     protected void cancelWelcomeScreen() {
-        setWelcomeScreenResult(RESULT_CANCELED);
+        //setWelcomeScreenResult(RESULT_CANCELED);
         finish();
     }
 
-    @Override
-    public void onBackPressed() {
-
+    private void handleBackPressed() {
         // Scroll to previous page and return if back button navigates
         if (configuration.getBackButtonNavigatesPages() && scrollToPreviousPage()) {
             return;
@@ -238,11 +243,16 @@ public abstract class WelcomeActivity extends AppCompatActivity {
 
     }
 
+    private boolean isOnBackPressedCallbackShouldBeEnabled() {
+        if (!configuration.getBackButtonNavigatesPages()) return false;
+        return canScrollToPreviousPage();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (configuration.getShowActionBarBackButton() && item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            handleBackPressed();
             return true;
         }
 
@@ -260,6 +270,30 @@ public abstract class WelcomeActivity extends AppCompatActivity {
     }
 
     protected abstract WelcomeConfiguration configuration();
+
+    private final OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(false) {
+        @Override
+        public void handleOnBackPressed() {
+            handleBackPressed();
+        }
+    };
+
+    private final ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            onBackPressedCallback.setEnabled(isOnBackPressedCallbackShouldBeEnabled());
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+        }
+
+    };
 
     private class WelcomeFragmentPagerAdapter extends FragmentPagerAdapter {
 

@@ -20,7 +20,7 @@ public class ButtonBarWelcomeActivity extends WelcomeActivity {
     @Override
     protected WelcomeConfiguration configuration() {
         return new WelcomeConfiguration.Builder(this)
-                .canSkip(false)
+                // .canSkip(false)
                 .backButtonNavigatesPages(false)
                 .defaultTitleTypefacePath("Roboto-Bold.ttf")
                 .defaultHeaderTypefacePath("Roboto-Bold.ttf")

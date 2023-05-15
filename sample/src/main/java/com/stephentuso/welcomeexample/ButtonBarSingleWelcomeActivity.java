@@ -20,7 +20,7 @@ public class ButtonBarSingleWelcomeActivity extends WelcomeActivity {
                 .defaultTitleTypefacePath("Roboto-Bold.ttf")
                 .defaultHeaderTypefacePath("Roboto-Bold.ttf")
                 .bottomLayout(WelcomeConfiguration.BottomLayout.BUTTON_BAR_SINGLE)
-                .exitAnimation(android.R.anim.fade_out)
+                // .exitAnimation(android.R.anim.fade_out)
                 .page(new TitlePage(R.drawable.ic_image_white, "Title Page"))
                 .page(new BasicPage(R.drawable.ic_image_white, "Basic Page", "A page with a title and description").background(R.color.purple_background))
                 .build();

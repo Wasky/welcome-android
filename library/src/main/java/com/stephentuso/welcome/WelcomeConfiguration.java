@@ -422,10 +422,10 @@ public class WelcomeConfiguration {
          * @param canSkip True to allow skipping, false to disable it
          * @return this Builder object to allow method calls to be chained
          */
-        public Builder canSkip(boolean canSkip) {
+        /*public Builder canSkip(boolean canSkip) {
             this.canSkip = canSkip;
             return this;
-        }
+        }*/
 
         /**
          * Only applies if skipping is allowed. Sets whether or not the back button can skip the welcome screen.
@@ -434,10 +434,10 @@ public class WelcomeConfiguration {
          * @param backButtonSkips True to allow the back button to skip the welcome screen, false to disable it
          * @return this Builder object to allow method calls to be chained
          */
-        public Builder backButtonSkips(boolean backButtonSkips) {
+        /*public Builder backButtonSkips(boolean backButtonSkips) {
             this.backButtonSkips = backButtonSkips;
             return this;
-        }
+        }*/
 
         /**
          * Set whether or not pressing the back button will move to the previous page in the welcome screen.
@@ -573,10 +573,10 @@ public class WelcomeConfiguration {
          * @param exitAnimationResId The resource id of the animation to use
          * @return this Builder object to allow method calls to be chained
          */
-        public Builder exitAnimation(@AnimRes int exitAnimationResId) {
+        /*public Builder exitAnimation(@AnimRes int exitAnimationResId) {
             this.exitAnimationResId = exitAnimationResId;
             return this;
-        }
+        }*/
 
         /**
          * Set the color to be used when no background color is specified for a page

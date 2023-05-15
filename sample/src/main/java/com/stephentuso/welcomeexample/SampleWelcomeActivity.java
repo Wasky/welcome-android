@@ -44,7 +44,7 @@ public class SampleWelcomeActivity extends WelcomeActivity {
                 )
 
                 .swipeToDismiss(true)
-                .exitAnimation(android.R.anim.fade_out)
+                // .exitAnimation(android.R.anim.fade_out)
                 .build();
     }
 

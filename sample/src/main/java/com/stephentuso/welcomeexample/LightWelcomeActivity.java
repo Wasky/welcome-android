@@ -28,7 +28,7 @@ public class LightWelcomeActivity extends WelcomeActivity {
                         "All colors can be customized with styles")
                         .headerColorResource(this, R.color.colorAccent))
                 .swipeToDismiss(true)
-                .exitAnimation(android.R.anim.fade_out)
+                // .exitAnimation(android.R.anim.fade_out)
                 .build();
     }
 
