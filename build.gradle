@@ -16,9 +16,9 @@ ext {
             min    : 21,
             target : 33
     ]
-    buildToolsVer = '32.0.0'
+    buildToolsVer = '33.0.2'
 
-    appcompatVersion = "1.4.2"
+    appcompatVersion = "1.6.1"
 }
 
 allprojects {
