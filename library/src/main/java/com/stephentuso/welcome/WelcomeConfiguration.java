@@ -422,10 +422,10 @@ public class WelcomeConfiguration {
          * @param canSkip True to allow skipping, false to disable it
          * @return this Builder object to allow method calls to be chained
          */
-        /*public Builder canSkip(boolean canSkip) {
+        public Builder canSkip(boolean canSkip) {
             this.canSkip = canSkip;
             return this;
-        }*/
+        }
 
         /**
          * Only applies if skipping is allowed. Sets whether or not the back button can skip the welcome screen.

@@ -27,7 +27,7 @@ public class NoSkipWelcomeActivity extends WelcomeActivity {
                 .page(new BasicPage(R.drawable.ic_check_white,
                         "Completion",
                         "RESULT_OK will only be returned after navigating all the way to the end"))
-                // .canSkip(false)
+                .canSkip(false)
                 .swipeToDismiss(true)
                 .build();
     }
