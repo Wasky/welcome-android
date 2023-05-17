@@ -20,12 +20,12 @@ public class WelcomeSharedPreferencesHelper {
     }
 
     public static void storeWelcomeCompleted(Context context, String welcomeScreenKey) {
-        getSharedPrefs(context).edit().putBoolean(getKey(welcomeScreenKey), true).commit();
+        getSharedPrefs(context).edit().putBoolean(getKey(welcomeScreenKey), true).apply();
     }
 
     //Not needed by the library, added for testability
     public static void removeWelcomeCompleted(Context context, String welcomeScreenKey) {
-        getSharedPrefs(context).edit().remove(getKey(welcomeScreenKey)).commit();
+        getSharedPrefs(context).edit().remove(getKey(welcomeScreenKey)).apply();
     }
 
     private static boolean getCompletedFromPreferences(SharedPreferences preferences, String welcomeScreenKey) {
