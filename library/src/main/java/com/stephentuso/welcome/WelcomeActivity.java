@@ -1,5 +1,6 @@
 package com.stephentuso.welcome;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ public abstract class WelcomeActivity extends AppCompatActivity {
     private WelcomeConfiguration configuration;
     private WelcomeItemList responsiveItems = new WelcomeItemList();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         configuration = configuration();
@@ -85,6 +87,8 @@ public abstract class WelcomeActivity extends AppCompatActivity {
         addViewWrapper(done, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WelcomeSharedPreferencesHelper.storeWelcomeCompleted(WelcomeActivity.this, getKey());
+                setWelcomeScreenResult(RESULT_OK);
                 completeWelcomeScreen();
             }
         });
@@ -134,7 +138,11 @@ public abstract class WelcomeActivity extends AppCompatActivity {
 
         responsiveItems.onPageSelected(viewPager.getCurrentItem());
 
-        WelcomeSharedPreferencesHelper.storeWelcomeCompleted(this, getKey());
+
+        if (configuration.getBackButtonSkips()) {
+            WelcomeSharedPreferencesHelper.storeWelcomeCompleted(this, getKey());
+            setWelcomeScreenResult(RESULT_OK);
+        }
 
         getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
     }
@@ -225,7 +233,7 @@ public abstract class WelcomeActivity extends AppCompatActivity {
      * A subsequent call to WelcomeScreenHelper.show() would show this again.
      */
     protected void cancelWelcomeScreen() {
-        //setWelcomeScreenResult(RESULT_CANCELED);
+        setWelcomeScreenResult(RESULT_CANCELED);
         finish();
     }
 
