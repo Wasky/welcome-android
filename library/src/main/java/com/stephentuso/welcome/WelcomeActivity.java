@@ -87,8 +87,6 @@ public abstract class WelcomeActivity extends AppCompatActivity {
         addViewWrapper(done, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WelcomeSharedPreferencesHelper.storeWelcomeCompleted(WelcomeActivity.this, getKey());
-                setWelcomeScreenResult(RESULT_OK);
                 completeWelcomeScreen();
             }
         });
@@ -220,8 +218,8 @@ public abstract class WelcomeActivity extends AppCompatActivity {
      * unless the key is changed.
      */
     protected void completeWelcomeScreen() {
-        //WelcomeSharedPreferencesHelper.storeWelcomeCompleted(this, getKey());
-        //setWelcomeScreenResult(RESULT_OK);
+        WelcomeSharedPreferencesHelper.storeWelcomeCompleted(this, getKey());
+        setWelcomeScreenResult(RESULT_OK);
         finish();
         /*if (configuration.getExitAnimation() != WelcomeConfiguration.NO_ANIMATION_SET) {
             overridePendingTransition(R.anim.wel_none, configuration.getExitAnimation());
